@@ -1,0 +1,55 @@
+<!-- locationdevoiture/templates/reservation.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row mt-5 mb-5 shadow justify-content-center">
+        <div class="col-lg-6 shadow p-4">
+            <h3 class="text-center mb-4">Réservation</h3>
+            {% if messages %}
+            <div class="alert alert-success">
+                {% for message in messages %}
+                <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="first_name" class="form-label">Prénom</label>
+                    <input type="text" class="form-control" id="first_name" name="first_name" aria-describedby="textHelp" required>
+                </div>
+                <div class="mb-3">
+                    <label for="last_name" class="form-label">Nom</label>
+                    <input type="text" class="form-control" id="last_name" name="last_name" aria-describedby="textHelp" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Adresse Email</label>
+                    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" required>
+                </div>
+                <div class="mb-3">
+                    <label for="phone_number" class="form-label">Numéro de téléphone</label>
+                    <input type="tel" class="form-control" id="phone_number" name="phone_number" placeholder="0000000000" required>
+                </div>
+                <div class="mb-3">
+                    <label for="reservation_prise" class="form-label">Date/heure de prise :</label>
+                    <input type="datetime-local" class="form-control" id="reservation_prise" name="reservation_prise" required>
+                </div>
+                <div class="mb-3">
+                    <label for="reservation_retour" class="form-label">Date/heure de retour :</label>
+                    <input type="datetime-local" class="form-control" id="reservation_retour" name="reservation_retour" required>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="accept_terms" name="accept_terms" required>
+                    <label class="form-check-label" for="accept_terms">Acceptez les termes et conditions</label>
+                </div>
+                <input type="hidden" name="reservation_id" value="{{ reservation.id }}">
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary btn-lg">Réservez</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

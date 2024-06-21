@@ -1,0 +1,22 @@
+<!--reservation_email.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation Confirmation</title>
+</head>
+<body>
+    <h1>Reservation Confirmation</h1>
+    <p>Hello {{ first_name }},</p>
+    <p>Your reservation details:</p>
+    <ul>
+        <li>First Name: {{ first_name }}</li>
+        <li>Last Name: {{ last_name }}</li>
+        <li>Email: {{ email }}</li>
+        <li>Phone Number: {{ phone_number }}</li>
+        <li>Reservation Date/Time: {{ reservation_datetime }}</li>
+    </ul>
+    <p>Thank you for choosing our service!</p>
+</body>
+</html>

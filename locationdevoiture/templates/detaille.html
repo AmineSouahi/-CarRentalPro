@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="containerx">
+
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="">{{ cars.name }}</h2>
+            <p class="">Modèle: {{ cars.modele }}</p>
+            <p class="">Année: {{ cars.annee }}</p>
+            <p class="">Couleur: {{ cars.color }}</p>
+            <p class="">Prix par jour: {{ cars.prix }} €</p>
+            <p class="">Description:</p>
+            <p class="">
+               {{ cars.description }}
+            </p>
+        </div>
+        <div class="col-md-6">
+            <img src="{{ cars.photo }}" class="card-img-top" alt="...">        </div>
+    </div>
+
+</div>
+
+<style>
+
+    .containerx {
+        margin : 50px;
+        margin-top : 50px;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 10px;
+    }
+
+    .text-white {
+        color: #ffffff;
+    }
+
+    .img-fluid {
+        max-width: 100%;
+        height: auto;
+        border-radius: 50px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+</style>
+{% endblock %}

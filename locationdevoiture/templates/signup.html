@@ -1,0 +1,43 @@
+<!-- locationdevoiture/templates/signup.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row mt-5 mb-5 shadow justify-content-center">
+        <div class="col-lg-6 shadow p-4">
+            <h3 class="text-center">Créer votre compte</h3>
+            <form method="post" action="{% url 'signup' %}">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="first_name" class="form-label">Prénom</label>
+                    <input type="text" class="form-control" id="first_name" name="first_name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="last_name" class="form-label">Nom</label>
+                    <input type="text" class="form-control" id="last_name" name="last_name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Nom d'utilisateur</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Adresse Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password1" class="form-label">Mot de passe</label>
+                    <input type="password" class="form-control" id="password1" name="password1" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password2" class="form-label">Répétez votre mot de passe</label>
+                    <input type="password" class="form-control" id="password2" name="password2" required>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary btn-lg">S'inscrire</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

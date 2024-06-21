@@ -1,0 +1,43 @@
+<!--locationdevoiture/templates/home.html-->
+{% extends "base.html" %}
+<!-- Correct block structure -->
+{% block content %}
+
+<div class="container mt-5 mb-5">
+  
+    <h3  class="mb-5  ">Venez louer vos voitures chez luxeCars, la meilleure location des voitures.</h3>
+    <div class="row">
+        {% for car in cars %}
+       <div class="col-lg-4">
+        <div class="card shadow" style="width: 18rem;">
+
+            <img src="{{ car.photo }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"> {{ car.name }}</h5>
+              <p class="card-text">{{ car.description }}</p>
+              <a href="{% url 'detaille' car.id %}" class="btn btn-warning"> Détaille </a>
+              {% if user.is_authenticated %}
+                 <a href="{% url 'reservation' car.id  %}" class="btn btn-success">Réservez</a>
+              {% else %}
+                 <a href="{% url 'login' %}" class="btn btn-success">Réservez (Connectez-vous)</a>
+              {% endif %}
+            </div>
+          </div>
+       </div>
+        {% endfor %}
+
+       </div>
+
+
+       </div>
+
+    </div>
+</div>  
+<style>
+
+</style> 
+
+
+    <!-- Your content goes here -->
+{% endblock %}
+

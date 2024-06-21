@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+
+    />
+
+
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+
+    <title>luxe voiture</title>
+
+  </head>
+  <body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light bg-dark shadow">
+        <div class="container">
+            <a class="navbar-brand text-white" href="#">luxeCars </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active text-white" href="/">Accueil <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link text-white" href="/reservation_list">Votre Reservation</a>
+                    <a class="nav-item nav-link text-white" href="#">A Propos</a>
+                    <a class="nav-item nav-link text-white disabled" href="#" tabindex="-1" aria-disabled="true">contactez-nous</a>
+
+                    {% if user.is_authenticated %}
+                        <!-- Show "Sign Out" link if user is authenticated -->
+                        <li class="nav-item active ml-5">
+                            <a class="nav-item nav-link btn btn-danger text-white" href="{% url 'custom_logout' %}">Déconnexion</a>
+                        </li>
+                    {% else %}
+                        <!-- Show "Login" and "Sign Up" links if user is not authenticated -->
+                        <li class="nav-item active ml-5">
+                            <a class="nav-item nav-link btn btn-success text-white" href="{% url 'login' %}">Connexion</a>
+                        </li>
+                        <li class="nav-item active ml-3">
+                            <a class="nav-item nav-link btn btn-info text-white" href="{% url 'signup' %}">Créer un compte</a>
+                        </li>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Correct block structure -->
+{% block content %}
+<!-- Your content goes here -->
+{% endblock %}
+
+
+<style>
+  body {
+    background-image: url('https://img.freepik.com/free-photo/business-parking-empty-carpark-abstract_1203-5195.jpg?w=1480&t=st=1695489924~exp=1695490524~hmac=7f326938d276f6a0d9049afb8fb4a02ff38ff079e2a5983c8f2518d39fbdc69e');
+    background-size: cover; /* Adjust as needed */
+    background-repeat: no-repeat;
+}
+  video {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 70%;
+  left: 50%;
+  z-index: -1;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+</style>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
